@@ -3,7 +3,9 @@ package entities;
 public class Main {
 
 	public static void main(String[] args) {
-		
+
+		System.out.println("Test of push a KirRep");
+
 		String menu = "Crear Floristeria.\r\n"
 				+ "Afegir Arbre.\r\n"
 				+ "Afegir Flor.\r\n"
