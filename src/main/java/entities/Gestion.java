@@ -13,7 +13,7 @@ public class Gestion implements IGestion {
     }
 
     public void afegirDecoracio(Decoracio decoracio, Floristeria floristeria) {
-        floristeria.getDecoracios().add(decoracio);
+        floristeria.getDecoracions().add(decoracio);
         System.out.println("La decoració " + decoracio.toString() + " se ha añadido");
 
     }
