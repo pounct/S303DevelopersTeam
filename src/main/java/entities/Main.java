@@ -3,8 +3,7 @@ package entities;
 import java.util.Scanner;
 
 public class Main {
-	
-	
+
 	public static Scanner sc = new Scanner(System.in);
 
 	public static void main(String[] args) {
@@ -54,7 +53,7 @@ public class Main {
 			case 3:
 				// 3.Afegir Flor.
 				if (floristeria != null) {
-					afegirFlor();
+					afegirFlor(gestion, floristeria);
 				} else {
 					System.out.println(" no hi ha floristeria!!!");
 				}
@@ -159,68 +158,74 @@ public class Main {
 			default:
 				break;
 			}
-		}		
+		}
+
+	}
+
+	private static void afegirFlor(Gestion gestion, Floristeria floristeria) {
+
+		System.out.println(" Color Flor: ");
+		String color = sc.nextLine();
+		System.out.println(" Preu Flor: ");
+		double preu = sc.nextDouble();
+		Flor flor = new Flor(1L, preu, color);
+		gestion.afegirFlor(flor, floristeria);
 
 	}
 
 	private static void visualitzarTotalTickets() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	private static void mostrarTickets() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	private static void crearTicket() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	private static void imprimirValorStock() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	private static void imprimirStockQuantitats() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	private static void retirarDecoracio() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	private static void retirarFlor() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	private static void retirarArbre() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	private static void imprimirStock() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	private static void afegirDecoracio() {
 		// TODO Auto-generated method stub
-		
-	}
 
-	private static void afegirFlor() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	private static void afegirArbre() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	private static Floristeria crearFloristeria(Gestion gestion) {
@@ -229,8 +234,8 @@ public class Main {
 		String nom = sc.nextLine();
 		Long index = 1L; // generar index
 		// Crear i recuperar Floristeria
-		return gestion.crearFloristeria(index,nom);
-		
+		return gestion.crearFloristeria(index, nom);
+
 	}
 
 }
