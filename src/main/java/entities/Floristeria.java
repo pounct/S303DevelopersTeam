@@ -59,6 +59,18 @@ public class Floristeria {
         return decoracios;
     }
 
+    public List<Arbre> getArbres() {
+        return arbres;
+    }
+
+    public List<Flor> getFlors() {
+        return flors;
+    }
+
+    public List<Decoracio> getDecoracios() {
+        return decoracios;
+    }
+
     @Override
     public String toString() {
         return "Floristeria [id=" + id + ", nom=" + nom + "]";
