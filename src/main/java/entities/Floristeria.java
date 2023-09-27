@@ -46,10 +46,33 @@ public class Floristeria {
 		return decoracions;
 	}
 
+	public double getValorArbres() {
+		double total = 0;
+		for (Arbre arbre : arbres) {
+			total += arbre.getPreu();
+		}
+		return total;
+	}
+
+	public double getValorFlors() {
+		double total = 0;
+		for (Flor flor : flors) {
+			total += flor.getPreu();
+		}
+		return total;
+	}
+
+	public double getValorDecoracions() {
+		double total = 0;
+		for (Decoracio decoracio : decoracions) {
+			total += decoracio.getPreu();
+		}
+		return total;
+	}
+
 	@Override
 	public String toString() {
 		return "Floristeria [id=" + id + ", nom=" + nom + "]";
 	}
 
-	
 }

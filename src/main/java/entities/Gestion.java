@@ -39,18 +39,34 @@ public class Gestion implements IGestion {
 
 	}
 
-	public void imprimirStock() {
-		// TODO Auto-generated method stub
+	public void imprimirStock(Floristeria floristeria) {
+		System.out.println("Productes:");
+		System.out.println("----------");
+		System.out.println("Arbres:");
+		System.out.println(floristeria.getArbres());
+		System.out.println("Flors:");
+		System.out.println(floristeria.getFlors());
+		System.out.println("Decoracions:");
+		System.out.println(floristeria.getDecoracions());
 
 	}
 
-	public void imprimirStockQuantitats() {
-		// TODO Auto-generated method stub
+	public void imprimirStockQuantitats(Floristeria floristeria) {
+		System.out.println("Productes amb Quantitats:");
+		System.out.println("----------");
+		System.out.print("Arbres: ");
+		System.out.println(floristeria.getArbres().size());
+		System.out.print("Flors: ");
+		System.out.println(floristeria.getFlors().size());
+		System.out.print("Decoracions: ");
+		System.out.println(floristeria.getDecoracions().size());
 
 	}
 
-	public void imprimirStockValor() {
-		// TODO Auto-generated method stub
+	public void imprimirStockValor(Floristeria floristeria) {
+		System.out.print("Valor Total Productes de la floristeria : " + floristeria.getNom());
+		System.out.println(
+				floristeria.getValorArbres() + floristeria.getValorFlors() + floristeria.getValorDecoracions());
 
 	}
 
