@@ -7,8 +7,8 @@ public class Arbre extends Producte {
 		
 	}
 
-	public Arbre(Long id, double preu, double alcada) {
-		super(id, preu);
+	public Arbre(double preu, double alcada) {
+		super(Producte.getIndex(), preu);
 		this.alcada = alcada;
 	}
 

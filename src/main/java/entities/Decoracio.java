@@ -7,8 +7,8 @@ public class Decoracio extends Producte {
 		
 	}
 
-	public Decoracio(Long id, double preu, Material material) {
-		super(id, preu);
+	public Decoracio(double preu, Material material) {
+		super(Producte.getIndex(), preu);
 		this.material = material;
 	}
 

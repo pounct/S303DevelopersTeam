@@ -1,7 +1,11 @@
 package entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Ticket {
 	private Long id;
+	private List<Producte> productes;
 
 	public Ticket() {
 		
@@ -9,6 +13,7 @@ public class Ticket {
 	
 	public Ticket(Long id) {
 		this.id = id;
+		this.productes = new ArrayList<Producte>();
 	}
 
 	public Long getId() {
@@ -19,5 +24,22 @@ public class Ticket {
 		this.id = id;
 	}
 	
+	public List<Producte> getProductes() {
+		return productes;
+	}
+
 	
+	
+	
+	//	public List<Arbre> getArbres() {
+//		return arbres;
+//	}
+//
+//	public List<Flor> getFlors() {
+//		return flors;
+//	}
+//
+//	public List<Decoracio> getDecoracions() {
+//		return decoracions;
+//	}
 }

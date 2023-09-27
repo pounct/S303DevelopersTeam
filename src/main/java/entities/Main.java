@@ -45,7 +45,7 @@ public class Main {
 			case 2:
 				// 2.Afegir Arbre.
 				if (floristeria != null) {
-					afegirArbre();
+					afegirArbre(gestion, floristeria);
 				} else {
 					System.out.println(" no hi ha floristeria!!!");
 				}
@@ -61,7 +61,7 @@ public class Main {
 			case 4:
 				// 4.Afegir Decoració.
 				if (floristeria != null) {
-					afegirDecoracio();
+					afegirDecoracio(gestion, floristeria);
 				} else {
 					System.out.println(" no hi ha floristeria!!!");
 				}
@@ -122,7 +122,7 @@ public class Main {
 				// Crear tickets de compra amb múltiples objectes.
 				// 11.Compra amb múltiples objectes
 				if (floristeria != null) {
-					crearTicket();
+					crearTicket(gestion);
 				} else {
 					System.out.println(" no hi ha floristeria!!!");
 				}
@@ -162,14 +162,35 @@ public class Main {
 
 	}
 
+	private static void afegirArbre(Gestion gestion, Floristeria floristeria) {
+		System.out.println(" Alçada arbre ");
+		double alcada = sc.nextDouble();
+		System.out.println(" Preu arbre: ");
+		double preu = sc.nextDouble();
+		Arbre arbre = new Arbre(preu, alcada);
+		gestion.afegirArbre(arbre, floristeria);
+
+	}
+
 	private static void afegirFlor(Gestion gestion, Floristeria floristeria) {
 
-		System.out.println(" Color Flor: ");
+		System.out.println(" Color flor: ");
 		String color = sc.nextLine();
-		System.out.println(" Preu Flor: ");
+		System.out.println(" Preu flor: ");
 		double preu = sc.nextDouble();
-		Flor flor = new Flor(1L, preu, color);
+		Flor flor = new Flor(preu, color);
 		gestion.afegirFlor(flor, floristeria);
+
+	}
+
+	private static void afegirDecoracio(Gestion gestion, Floristeria floristeria) {
+		System.out.println(" Material decoracio: ");
+		System.out.println("1. Fusta, 2. Plastic");
+		Material material = (sc.nextByte() == 1) ? Material.FUSTA : Material.PLASTIC;
+		System.out.println(" Preu decoracio: ");
+		double preu = sc.nextDouble();
+		Decoracio decoracio = new Decoracio(preu, material);
+		gestion.afegirDecoracio(decoracio, floristeria);
 
 	}
 
@@ -183,8 +204,37 @@ public class Main {
 
 	}
 
-	private static void crearTicket() {
-		// TODO Auto-generated method stub
+	private static void crearTicket(Gestion gestion) {
+		Ticket ticket = gestion.crearTicket();
+		boolean finTicket = false;
+		byte opcion;
+
+		while (!finTicket) {
+			System.out.println("1. Afegir arbre");
+			System.out.println("2. Afegir flor");
+			System.out.println("3. Afegir decoracio");
+			System.out.println("0. Finalitzar ticket");
+			opcion = sc.nextByte();
+
+			switch (opcion) {
+			case 1:
+				// preparar arbre
+				gestion.afegirProducte(new Arbre(), ticket);
+				break;
+			case 2:
+				gestion.afegirProducte(new Flor(), ticket);
+				break;
+			case 3:
+				gestion.afegirProducte(new Decoracio(), ticket);
+				break;
+			case 0:
+				finTicket = true;
+				break;
+			default:
+				break;
+			}
+
+		}
 
 	}
 
@@ -214,16 +264,6 @@ public class Main {
 	}
 
 	private static void imprimirStock() {
-		// TODO Auto-generated method stub
-
-	}
-
-	private static void afegirDecoracio() {
-		// TODO Auto-generated method stub
-
-	}
-
-	private static void afegirArbre() {
 		// TODO Auto-generated method stub
 
 	}

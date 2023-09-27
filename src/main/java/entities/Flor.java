@@ -7,8 +7,8 @@ public class Flor extends Producte {
 		
 	}
 
-	public Flor(Long id, double preu, String color) {
-		super(id, preu);
+	public Flor(double preu, String color) {
+		super(Producte.getIndex(), preu);
 		this.color = color;
 	}
 

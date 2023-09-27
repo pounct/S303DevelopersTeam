@@ -24,7 +24,7 @@ public interface IGestion {
 
 	void imprimirStockValor(Floristeria floristeria);
 
-	void crearTicket();
+	Ticket crearTicket();
 
 	void mostrarTickets();
 

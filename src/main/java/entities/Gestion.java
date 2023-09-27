@@ -23,6 +23,11 @@ public class Gestion implements IGestion {
 
 	}
 
+	public void afegirProducte(Producte producte, Ticket ticket) {
+		ticket.getProductes().add(producte);
+		System.out.println("El producte " + producte.toString() + " se ha añadido");
+	}
+
 	public void afegirArbre(Arbre arbol, Floristeria floristeria) {
 		floristeria.getArbres().add(arbol);
 		System.out.println("El arbol " + arbol.toString() + " se ha añadido");
@@ -70,9 +75,8 @@ public class Gestion implements IGestion {
 
 	}
 
-	public void crearTicket() {
-		// TODO Auto-generated method stub
-
+	public Ticket crearTicket() {
+		return null;
 	}
 
 	public void mostrarTickets() {

@@ -1,8 +1,14 @@
 package entities;
 
 public abstract class Producte {
+	
+	private static Long index=0L;
 	private Long id;
 	private double preu;
+	
+	public static Long getIndex() {
+		return index++;
+	}
 	
 	public Producte(Long id, double preu) {
 		this.id = id;
