@@ -25,8 +25,7 @@ public class Gestion implements IGestion {
 
 	}
 
-	public class Gestion implements IGestion {
-
+	
     public void afegirArbre(Arbre arbol, Floristeria floristeria) {
         floristeria.getArbres().add(arbol);
         System.out.println("El arbol " + arbol.toString() + " se ha añadido");
