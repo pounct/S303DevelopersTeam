@@ -8,7 +8,7 @@ public class Decoracio extends Producte {
 	}
 
 	public Decoracio(double preu, Material material) {
-		super(Producte.getIndex(), preu);
+		super(preu);
 		this.material = material;
 	}
 
@@ -20,6 +20,9 @@ public class Decoracio extends Producte {
 		this.material = material;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return getId() +"\t" +  getPreu()+"\t" + material;
+	}
 
 }

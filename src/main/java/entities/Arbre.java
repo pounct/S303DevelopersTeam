@@ -8,8 +8,11 @@ public class Arbre extends Producte {
 	}
 
 	public Arbre(double preu, double alcada) {
-		super(Producte.getIndex(), preu);
+		
+		super(preu);
 		this.alcada = alcada;
+		
+		
 	}
 
 	public double getAlcada() {
@@ -18,6 +21,11 @@ public class Arbre extends Producte {
 
 	public void setAlcada(double alcada) {
 		this.alcada = alcada;
+	}
+
+	@Override
+	public String toString() {
+		return getId() +"\t" +  getPreu()+"\t" + alcada;
 	}
 
 	

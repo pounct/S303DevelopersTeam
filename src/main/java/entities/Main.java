@@ -1,5 +1,6 @@
 package entities;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -71,7 +72,7 @@ public class Main {
 				// que té la floristeria.
 				// 5.Stock
 				if (floristeria != null) {
-					imprimirStock();
+					imprimirStock(gestion, floristeria);
 				} else {
 					System.out.println(" no hi ha floristeria!!!");
 				}
@@ -79,7 +80,7 @@ public class Main {
 			case 6:
 				// 6.Retirar arbre.
 				if (floristeria != null) {
-					retirarArbre();
+					retirarArbre(gestion, floristeria);
 				} else {
 					System.out.println(" no hi ha floristeria!!!");
 				}
@@ -87,7 +88,7 @@ public class Main {
 			case 7:
 				// 7.Retirar flor.
 				if (floristeria != null) {
-					retirarFlor();
+					retirarFlor(gestion, floristeria);
 				} else {
 					System.out.println(" no hi ha floristeria!!!");
 				}
@@ -95,7 +96,7 @@ public class Main {
 			case 8:
 				// 8.Retirar decoració.
 				if (floristeria != null) {
-					retirarDecoracio();
+					retirarDecoracio(gestion, floristeria);
 				} else {
 					System.out.println(" no hi ha floristeria!!!");
 				}
@@ -104,7 +105,7 @@ public class Main {
 				// Printar per pantalla stock amb quantitats.
 				// 9.Stock Amb Quantitats
 				if (floristeria != null) {
-					imprimirStockQuantitats();
+					imprimirStockQuantitats(gestion, floristeria);
 				} else {
 					System.out.println(" no hi ha floristeria!!!");
 				}
@@ -113,7 +114,7 @@ public class Main {
 				// Printar per pantalla valor total de la floristeria.
 				// 10.Valor Stock // Valor Compres // ValorVendes
 				if (floristeria != null) {
-					imprimirValorStock();
+					imprimirValorStock(gestion, floristeria);
 				} else {
 					System.out.println(" no hi ha floristeria!!!");
 				}
@@ -122,7 +123,7 @@ public class Main {
 				// Crear tickets de compra amb múltiples objectes.
 				// 11.Compra amb múltiples objectes
 				if (floristeria != null) {
-					crearTicket(gestion);
+					crearTicket(gestion, floristeria);
 				} else {
 					System.out.println(" no hi ha floristeria!!!");
 				}
@@ -152,7 +153,7 @@ public class Main {
 //				break;
 			case 0:
 				onProgram = false;
-				System.out.println("      Fin de programe.");
+				System.out.println("      Fin de programa.");
 				break;
 
 			default:
@@ -204,8 +205,8 @@ public class Main {
 
 	}
 
-	private static void crearTicket(Gestion gestion) {
-		Ticket ticket = gestion.crearTicket();
+	private static void crearTicket(Gestion gestion, Floristeria floristeria) {
+		Ticket ticket = new Ticket();
 		boolean finTicket = false;
 		byte opcion;
 
@@ -218,14 +219,49 @@ public class Main {
 
 			switch (opcion) {
 			case 1:
-				// preparar arbre
-				gestion.afegirProducte(new Arbre(), ticket);
+				System.out.println("Arbres:");
+				System.out.println(floristeria.getArbres());
+				System.out.println("id del producte a passar al ticket: ");
+				Long id = sc.nextLong();
+				Arbre arbre = gestion.buscarArbre(id, floristeria.getArbres());
+
+				if (arbre != null) {
+					gestion.afegirProducte(arbre, ticket);
+					gestion.retirarArbre(arbre, floristeria);
+					System.out.println("Arbre afegit al ticket");
+										
+				} else
+					System.out.println("Producte amb aquest ID no trobat");
 				break;
 			case 2:
-				gestion.afegirProducte(new Flor(), ticket);
+				System.out.println("Flors:");
+				System.out.println(floristeria.getFlors());
+				System.out.println("id del producte a passar al ticket: ");
+				Long id2 = sc.nextLong();
+				Flor flor = gestion.buscarFlor(id2, floristeria.getFlors());
+
+				if (flor != null) {
+					gestion.afegirProducte(flor, ticket);
+					gestion.retirarFlor(flor, floristeria);
+					System.out.println("Arbre afegit al ticket");
+										
+				} else
+					System.out.println("Producte amb aquest ID no trobat");
 				break;
 			case 3:
-				gestion.afegirProducte(new Decoracio(), ticket);
+				System.out.println("Decoracions:");
+				System.out.println(floristeria.getDecoracions());
+				System.out.println("id del producte a passar al ticket: ");
+				Long id3 = sc.nextLong();
+				Decoracio decoracio = gestion.buscarDecoracio(id3, floristeria.getDecoracions());
+
+				if (decoracio != null) {
+					gestion.afegirProducte(decoracio, ticket);
+					gestion.retirarDecoracio(decoracio, floristeria);
+					System.out.println("Arbre afegit al ticket");
+										
+				} else
+					System.out.println("Producte amb aquest ID no trobat");
 				break;
 			case 0:
 				finTicket = true;
@@ -235,36 +271,74 @@ public class Main {
 			}
 
 		}
+		
+		System.out.println(ticket);
 
 	}
 
-	private static void imprimirValorStock() {
-		// TODO Auto-generated method stub
+	private static void imprimirValorStock(Gestion gestion, Floristeria floristeria) {
+		gestion.imprimirStockValor(floristeria);
 
 	}
 
-	private static void imprimirStockQuantitats() {
-		// TODO Auto-generated method stub
+	private static void imprimirStockQuantitats(Gestion gestion, Floristeria floristeria) {
+		gestion.imprimirStockQuantitats(floristeria);
 
 	}
 
-	private static void retirarDecoracio() {
-		// TODO Auto-generated method stub
+	private static void retirarDecoracio(Gestion gestion, Floristeria floristeria) {
+		System.out.println("Decoracions:");
+		System.out.println(floristeria.getDecoracions());
+		System.out.println("id del producte a retirar: ");
+		Long id = sc.nextLong();
+		Decoracio decoracio = gestion.buscarDecoracio(id, floristeria.getDecoracions());
+
+		// buscar by id
+
+		gestion.retirarDecoracio(decoracio, floristeria);
+		if (decoracio != null) {
+			System.out.println("Producte de decoracio retirat");
+		} else
+			System.out.println("Producte amb aquest ID no trobat");
 
 	}
 
-	private static void retirarFlor() {
-		// TODO Auto-generated method stub
+	private static void retirarFlor(Gestion gestion, Floristeria floristeria) {
+		System.out.println("Flors:");
+		System.out.println(floristeria.getFlors());
+		System.out.println("id del producte a retirar: ");
+		Long id = sc.nextLong();
+		Flor flor = gestion.buscarFlor(id, floristeria.getFlors());
+
+		// buscar by id
+
+		gestion.retirarFlor(flor, floristeria);
+		if (flor != null) {
+			System.out.println("Flor retirada");
+		} else
+			System.out.println("Producte amb aquest ID no trobat");
 
 	}
 
-	private static void retirarArbre() {
-		// TODO Auto-generated method stub
+	private static void retirarArbre(Gestion gestion, Floristeria floristeria) {
+		System.out.println("Arbres:");
+		System.out.println(floristeria.getArbres());
+		System.out.println("id del producte a retirar: ");
+		Long id = sc.nextLong();
+		Arbre arbre = gestion.buscarArbre(id, floristeria.getArbres());
+
+		// buscar by id
+
+		gestion.retirarArbre(arbre, floristeria);
+		if (arbre != null) {
+			System.out.println("Arbre retirat");
+		} else
+			System.out.println("Producte amb aquest ID no trobat");
 
 	}
 
-	private static void imprimirStock() {
-		// TODO Auto-generated method stub
+	private static void imprimirStock(Gestion gestion, Floristeria floristeria) {
+		gestion.imprimirStock(floristeria);
 
 	}
 

@@ -8,7 +8,7 @@ public class Flor extends Producte {
 	}
 
 	public Flor(double preu, String color) {
-		super(Producte.getIndex(), preu);
+		super(preu);
 		this.color = color;
 	}
 
@@ -20,6 +20,9 @@ public class Flor extends Producte {
 		this.color = color;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return getId() +"\t" +  getPreu()+"\t" + color;
+	}
 
 }

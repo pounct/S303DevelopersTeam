@@ -10,8 +10,8 @@ public abstract class Producte {
 		return index++;
 	}
 	
-	public Producte(Long id, double preu) {
-		this.id = id;
+	public Producte(double preu) {
+		id = getIndex();
 		this.preu = preu;
 	}
 

@@ -9,6 +9,7 @@ public class Floristeria {
 	private List<Arbre> arbres;
 	private List<Flor> flors;
 	private List<Decoracio> decoracions;
+	private List<Ticket> tickets;
 
 	public Floristeria(Long id, String nom) {
 		this.id = id;
@@ -16,6 +17,7 @@ public class Floristeria {
 		this.arbres = new ArrayList<Arbre>();
 		this.flors = new ArrayList<Flor>();
 		this.decoracions = new ArrayList<Decoracio>();
+		this.tickets = new ArrayList<Ticket>();
 	}
 
 	public Long getId() {
@@ -46,6 +48,10 @@ public class Floristeria {
 		return decoracions;
 	}
 
+	public List<Ticket> getTickets(){
+		return tickets;
+	}
+	
 	public double getValorArbres() {
 		double total = 0;
 		for (Arbre arbre : arbres) {
@@ -64,7 +70,7 @@ public class Floristeria {
 
 	public double getValorDecoracions() {
 		double total = 0;
-		for (Decoracio decoracio : decoracions) {
+		for (Producte decoracio : decoracions) {
 			total += decoracio.getPreu();
 		}
 		return total;

@@ -1,5 +1,6 @@
 package entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Gestion implements IGestion {
@@ -21,6 +22,43 @@ public class Gestion implements IGestion {
 	public void retirarDecoracio(Decoracio decoracio, Floristeria floristeria) {
 		floristeria.getDecoracions().remove(decoracio);
 
+	}
+	
+	public Decoracio buscarDecoracio(Long id, List<Decoracio> listDeProducte) {
+		Decoracio producto = null;
+		int contador = 0;
+		while (producto == null && contador < listDeProducte.size()) {
+			if ((listDeProducte.get(contador)).getId() == id) {
+				producto = listDeProducte.get(contador);
+			}
+			contador++;
+		}
+
+		return producto;
+	}
+	public Flor buscarFlor(Long id, List<Flor> listDeProducte) {
+		Flor producto = null;
+		int contador = 0;
+		while (producto == null && contador < listDeProducte.size()) {
+			if ((listDeProducte.get(contador)).getId() == id) {
+				producto = listDeProducte.get(contador);
+			}
+			contador++;
+		}
+		
+		return producto;
+	}
+	public Arbre buscarArbre(Long id, List<Arbre> listDeProducte) {
+		Arbre producto = null;
+		int contador = 0;
+		while (producto == null && contador < listDeProducte.size()) {
+			if ((listDeProducte.get(contador)).getId() == id) {
+				producto = listDeProducte.get(contador);
+			}
+			contador++;
+		}
+		
+		return producto;
 	}
 
 	public void afegirProducte(Producte producte, Ticket ticket) {

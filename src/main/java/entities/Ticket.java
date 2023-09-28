@@ -5,15 +5,18 @@ import java.util.List;
 
 public class Ticket {
 	private Long id;
+	private static Long index=0L;
 	private List<Producte> productes;
-
-	public Ticket() {
-		
-	}
 	
-	public Ticket(Long id) {
-		this.id = id;
-		this.productes = new ArrayList<Producte>();
+	public static Long getIndex() {
+		return index++;
+	}
+
+	
+	
+	public Ticket() {
+		id=getIndex();
+		productes = new ArrayList<Producte>();
 	}
 
 	public Long getId() {
@@ -28,18 +31,13 @@ public class Ticket {
 		return productes;
 	}
 
+
+
+	@Override
+	public String toString() {
+		return id + "\n productes=" + productes + "]";
+	}
+
 	
-	
-	
-	//	public List<Arbre> getArbres() {
-//		return arbres;
-//	}
-//
-//	public List<Flor> getFlors() {
-//		return flors;
-//	}
-//
-//	public List<Decoracio> getDecoracions() {
-//		return decoracions;
-//	}
+
 }
