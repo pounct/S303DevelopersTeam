@@ -1,9 +1,10 @@
 package entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Floristeria {
+public class Floristeria implements Serializable {
 	private Long id;
 	private String nom;
 	private List<Arbre> arbres;
