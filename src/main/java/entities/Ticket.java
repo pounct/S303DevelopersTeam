@@ -31,11 +31,17 @@ public class Ticket {
 		return productes;
 	}
 
+	public double getTotalTicket() {
+		double total=0;
+		for(Producte p: productes)
+		total+=p.getPreu();
+		return total;
+	}
 
 
 	@Override
 	public String toString() {
-		return id + "\n productes=" + productes + "]";
+		return id + "\n";
 	}
 
 	

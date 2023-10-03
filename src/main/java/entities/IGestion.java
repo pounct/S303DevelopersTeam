@@ -24,10 +24,10 @@ public interface IGestion {
 
 	void imprimirStockValor(Floristeria floristeria);
 
-	Ticket crearTicket();
+	//void crearTicket();
 
-	void mostrarTickets();
+	void mostrarTickets(Floristeria floristeria);
 
-	void visualitzarTotalTickets();
+	void visualitzarTotalTickets(Floristeria floristeria);
 
 }

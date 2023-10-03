@@ -22,7 +22,7 @@ public class Main {
 
 			System.out.println("-----------------\n");
 			System.out.println(" 1.Crear Floristeria."); // obrir floristeria
-			System.out.println(" 14.Obrir Floristeria.");
+			//System.out.println(" 14.Obrir Floristeria.");
 			System.out.println(" 2.Afegir Arbre.");
 			System.out.println(" 3.Afegir Flor.");
 			System.out.println(" 4.Afegir Decoració.");
@@ -32,10 +32,10 @@ public class Main {
 			System.out.println(" 8.Retirar decoració.");
 			System.out.println(" 9.Stock Amb Quantitats");
 			System.out.println(" 10.Valor Stock");
-			System.out.println(" 11.Compra amb múltiples objectes");
-			System.out.println(" 12.Compres Antigues.");
-			System.out.println(" 13.diners guanyats");
-			System.out.println(" 0.fin");
+			System.out.println(" 11.Crear ticket");
+			System.out.println(" 12.Mostrar llista de compres antigues.");
+			System.out.println(" 13.Diners guanyats");
+			System.out.println(" 0.Sortir del programa");
 			opcion = sc.nextByte();
 			sc.nextLine();
 			switch (opcion) {
@@ -48,7 +48,7 @@ public class Main {
 				if (floristeria != null) {
 					afegirArbre(gestion, floristeria);
 				} else {
-					System.out.println(" no hi ha floristeria!!!");
+					System.out.println("No hi ha floristeria!!!");
 				}
 				break;
 			case 3:
@@ -56,7 +56,7 @@ public class Main {
 				if (floristeria != null) {
 					afegirFlor(gestion, floristeria);
 				} else {
-					System.out.println(" no hi ha floristeria!!!");
+					System.out.println("No hi ha floristeria!!!");
 				}
 				break;
 			case 4:
@@ -64,7 +64,7 @@ public class Main {
 				if (floristeria != null) {
 					afegirDecoracio(gestion, floristeria);
 				} else {
-					System.out.println(" no hi ha floristeria!!!");
+					System.out.println("No hi ha floristeria!!!");
 				}
 				break;
 			case 5:
@@ -74,7 +74,7 @@ public class Main {
 				if (floristeria != null) {
 					imprimirStock(gestion, floristeria);
 				} else {
-					System.out.println(" no hi ha floristeria!!!");
+					System.out.println("No hi ha floristeria!!!");
 				}
 				break;
 			case 6:
@@ -82,7 +82,7 @@ public class Main {
 				if (floristeria != null) {
 					retirarArbre(gestion, floristeria);
 				} else {
-					System.out.println(" no hi ha floristeria!!!");
+					System.out.println("No hi ha floristeria!!!");
 				}
 				break;
 			case 7:
@@ -90,7 +90,7 @@ public class Main {
 				if (floristeria != null) {
 					retirarFlor(gestion, floristeria);
 				} else {
-					System.out.println(" no hi ha floristeria!!!");
+					System.out.println("No hi ha floristeria!!!");
 				}
 				break;
 			case 8:
@@ -98,7 +98,7 @@ public class Main {
 				if (floristeria != null) {
 					retirarDecoracio(gestion, floristeria);
 				} else {
-					System.out.println(" no hi ha floristeria!!!");
+					System.out.println("No hi ha floristeria!!!");
 				}
 				break;
 			case 9:
@@ -107,7 +107,7 @@ public class Main {
 				if (floristeria != null) {
 					imprimirStockQuantitats(gestion, floristeria);
 				} else {
-					System.out.println(" no hi ha floristeria!!!");
+					System.out.println("No hi ha floristeria!!!");
 				}
 				break;
 			case 10:
@@ -116,7 +116,7 @@ public class Main {
 				if (floristeria != null) {
 					imprimirValorStock(gestion, floristeria);
 				} else {
-					System.out.println(" no hi ha floristeria!!!");
+					System.out.println("No hi ha floristeria!!!");
 				}
 				break;
 			case 11:
@@ -125,16 +125,16 @@ public class Main {
 				if (floristeria != null) {
 					crearTicket(gestion, floristeria);
 				} else {
-					System.out.println(" no hi ha floristeria!!!");
+					System.out.println("No hi ha floristeria!!!");
 				}
 				break;
 			case 12:
 				// Mostrar una llista de compres antigues.
 				// 12.Compres Antigues.
 				if (floristeria != null) {
-					mostrarTickets();
+					mostrarTickets(gestion, floristeria);
 				} else {
-					System.out.println(" no hi ha floristeria!!!");
+					System.out.println("No hi ha floristeria!!!");
 				}
 				break;
 			case 13:
@@ -142,9 +142,9 @@ public class Main {
 				// 13.diners guanyats
 				// Vendes
 				if (floristeria != null) {
-					visualitzarTotalTickets();
+					visualitzarTotalTickets(gestion, floristeria);
 				} else {
-					System.out.println(" no hi ha floristeria!!!");
+					System.out.println("No hi ha floristeria!!!");
 				}
 				break;
 //			case 14:
@@ -153,7 +153,7 @@ public class Main {
 //				break;
 			case 0:
 				onProgram = false;
-				System.out.println("      Fin de programa.");
+				System.out.println("Fin de programa.");
 				break;
 
 			default:
@@ -175,9 +175,9 @@ public class Main {
 
 	private static void afegirFlor(Gestion gestion, Floristeria floristeria) {
 
-		System.out.println(" Color flor: ");
+		System.out.println("Color flor: ");
 		String color = sc.nextLine();
-		System.out.println(" Preu flor: ");
+		System.out.println("Preu flor: ");
 		double preu = sc.nextDouble();
 		Flor flor = new Flor(preu, color);
 		gestion.afegirFlor(flor, floristeria);
@@ -185,7 +185,7 @@ public class Main {
 	}
 
 	private static void afegirDecoracio(Gestion gestion, Floristeria floristeria) {
-		System.out.println(" Material decoracio: ");
+		System.out.println("Material decoracio: ");
 		System.out.println("1. Fusta, 2. Plastic");
 		Material material = (sc.nextByte() == 1) ? Material.FUSTA : Material.PLASTIC;
 		System.out.println(" Preu decoracio: ");
@@ -195,13 +195,13 @@ public class Main {
 
 	}
 
-	private static void visualitzarTotalTickets() {
-		// TODO Auto-generated method stub
+	private static void visualitzarTotalTickets(Gestion gestion, Floristeria floristeria) {
+		gestion.visualitzarTotalTickets(floristeria);
 
 	}
 
-	private static void mostrarTickets() {
-		// TODO Auto-generated method stub
+	private static void mostrarTickets(Gestion gestion, Floristeria floristeria) {
+		gestion.mostrarTickets(floristeria);
 
 	}
 
@@ -229,7 +229,7 @@ public class Main {
 					gestion.afegirProducte(arbre, ticket);
 					gestion.retirarArbre(arbre, floristeria);
 					System.out.println("Arbre afegit al ticket");
-										
+
 				} else
 					System.out.println("Producte amb aquest ID no trobat");
 				break;
@@ -244,7 +244,7 @@ public class Main {
 					gestion.afegirProducte(flor, ticket);
 					gestion.retirarFlor(flor, floristeria);
 					System.out.println("Arbre afegit al ticket");
-										
+
 				} else
 					System.out.println("Producte amb aquest ID no trobat");
 				break;
@@ -259,7 +259,7 @@ public class Main {
 					gestion.afegirProducte(decoracio, ticket);
 					gestion.retirarDecoracio(decoracio, floristeria);
 					System.out.println("Arbre afegit al ticket");
-										
+
 				} else
 					System.out.println("Producte amb aquest ID no trobat");
 				break;
@@ -271,9 +271,10 @@ public class Main {
 			}
 
 		}
-		
-		System.out.println(ticket);
 
+		System.out.println(ticket.getProductes());
+		floristeria.getTickets().add(ticket);
+		
 	}
 
 	private static void imprimirValorStock(Gestion gestion, Floristeria floristeria) {

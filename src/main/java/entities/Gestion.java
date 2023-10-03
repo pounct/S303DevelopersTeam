@@ -23,7 +23,7 @@ public class Gestion implements IGestion {
 		floristeria.getDecoracions().remove(decoracio);
 
 	}
-	
+
 	public Decoracio buscarDecoracio(Long id, List<Decoracio> listDeProducte) {
 		Decoracio producto = null;
 		int contador = 0;
@@ -36,6 +36,7 @@ public class Gestion implements IGestion {
 
 		return producto;
 	}
+
 	public Flor buscarFlor(Long id, List<Flor> listDeProducte) {
 		Flor producto = null;
 		int contador = 0;
@@ -45,9 +46,10 @@ public class Gestion implements IGestion {
 			}
 			contador++;
 		}
-		
+
 		return producto;
 	}
+
 	public Arbre buscarArbre(Long id, List<Arbre> listDeProducte) {
 		Arbre producto = null;
 		int contador = 0;
@@ -57,7 +59,7 @@ public class Gestion implements IGestion {
 			}
 			contador++;
 		}
-		
+
 		return producto;
 	}
 
@@ -113,17 +115,25 @@ public class Gestion implements IGestion {
 
 	}
 
-	public Ticket crearTicket() {
-		return null;
+	// public void crearTicket() {
+	// return null;
+	// }
+
+	public void mostrarTickets(Floristeria floristeria) {
+		for (Ticket ticket : floristeria.getTickets()) {
+			System.out.println(ticket.getProductes());
+		}
+
 	}
 
-	public void mostrarTickets() {
-		// TODO Auto-generated method stub
+	public void visualitzarTotalTickets(Floristeria floristeria) {
+		double totalTickets = 0;
 
-	}
+		for (Ticket ticket : floristeria.getTickets()) {
+			totalTickets += ticket.getTotalTicket();
+		}
 
-	public void visualitzarTotalTickets() {
-		// TODO Auto-generated method stub
+		System.out.println(totalTickets);
 
 	}
 
