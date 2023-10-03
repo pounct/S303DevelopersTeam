@@ -1,6 +1,8 @@
 package entities;
 
-public class Flor extends Producte {
+import java.io.Serializable;
+
+public class Flor extends Producte{
 	private String color;
 
 	public Flor() {

@@ -1,6 +1,8 @@
 package entities;
 
-public abstract class Producte {
+import java.io.Serializable;
+
+public abstract class Producte implements Serializable{
 	
 	private static Long index=0L;
 	private Long id;

@@ -1,6 +1,8 @@
 package entities;
 
-public class Arbre extends Producte {
+import java.io.Serializable;
+
+public class Arbre extends Producte{
 	private double alcada;
 
 	public Arbre() {

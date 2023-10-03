@@ -1,17 +1,23 @@
-package entities;
+package app;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import entities.*;
+import gestion.Gestion;
+
 
 public class Main {
 
 	public static Scanner sc = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		// floristeria a activar
-		Floristeria floristeria = null;
+		
 		// gestionar floristeria
 		Gestion gestion = new Gestion();
+		// floristeria a activar
+		Floristeria floristeria = gestion.inicialitzarFloristeria();
+		
+		
 		boolean onProgram = true;
 
 		Byte opcion;
@@ -22,7 +28,6 @@ public class Main {
 
 			System.out.println("-----------------\n");
 			System.out.println(" 1.Crear Floristeria."); // obrir floristeria
-			//System.out.println(" 14.Obrir Floristeria.");
 			System.out.println(" 2.Afegir Arbre.");
 			System.out.println(" 3.Afegir Flor.");
 			System.out.println(" 4.Afegir Decoració.");
@@ -226,7 +231,7 @@ public class Main {
 				Arbre arbre = gestion.buscarArbre(id, floristeria.getArbres());
 
 				if (arbre != null) {
-					gestion.afegirProducte(arbre, ticket);
+					gestion.afegirProducte(arbre, ticket, floristeria);
 					gestion.retirarArbre(arbre, floristeria);
 					System.out.println("Arbre afegit al ticket");
 
@@ -241,7 +246,7 @@ public class Main {
 				Flor flor = gestion.buscarFlor(id2, floristeria.getFlors());
 
 				if (flor != null) {
-					gestion.afegirProducte(flor, ticket);
+					gestion.afegirProducte(flor, ticket, floristeria);
 					gestion.retirarFlor(flor, floristeria);
 					System.out.println("Arbre afegit al ticket");
 
@@ -256,7 +261,7 @@ public class Main {
 				Decoracio decoracio = gestion.buscarDecoracio(id3, floristeria.getDecoracions());
 
 				if (decoracio != null) {
-					gestion.afegirProducte(decoracio, ticket);
+					gestion.afegirProducte(decoracio, ticket, floristeria);
 					gestion.retirarDecoracio(decoracio, floristeria);
 					System.out.println("Arbre afegit al ticket");
 

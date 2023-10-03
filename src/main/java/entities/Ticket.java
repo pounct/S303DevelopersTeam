@@ -1,9 +1,10 @@
 package entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Ticket {
+public class Ticket implements Serializable{
 	private Long id;
 	private static Long index=0L;
 	private List<Producte> productes;

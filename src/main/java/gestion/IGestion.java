@@ -1,6 +1,11 @@
-package entities;
+package gestion;
 
 import java.util.List;
+
+import entities.Arbre;
+import entities.Decoracio;
+import entities.Flor;
+import entities.Floristeria;
 
 public interface IGestion {
 
