@@ -4,4 +4,8 @@
   <artifactId>S303DevelopersTeam</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>S303DevelopersTeam</name>
+    <properties>
+        <maven.compiler.source>20</maven.compiler.source>
+        <maven.compiler.target>20</maven.compiler.target>
+    </properties>
 </project>

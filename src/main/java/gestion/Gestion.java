@@ -1,8 +1,6 @@
 package gestion;
 
-import java.util.ArrayList;
 import java.util.List;
-
 import entities.Arbre;
 import entities.Decoracio;
 import entities.Flor;
@@ -132,9 +130,6 @@ public class Gestion implements IGestion {
 
 	}
 
-	// public void crearTicket() {
-	// return null;
-	// }
 
 	public void mostrarTickets(Floristeria floristeria) {
 		for (Ticket ticket : floristeria.getTickets()) {

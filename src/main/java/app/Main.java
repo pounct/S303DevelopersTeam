@@ -43,127 +43,125 @@ public class Main {
 			System.out.println(" 0.Sortir del programa");
 			opcion = sc.nextByte();
 			sc.nextLine();
-			switch (opcion) {
-			case 1:
-				// 1.Crear Floristeria.
-				floristeria = crearFloristeria(gestion);
-				break;
-			case 2:
-				// 2.Afegir Arbre.
-				if (floristeria != null) {
-					afegirArbre(gestion, floristeria);
-				} else {
-					System.out.println("No hi ha floristeria!!!");
-				}
-				break;
-			case 3:
-				// 3.Afegir Flor.
-				if (floristeria != null) {
-					afegirFlor(gestion, floristeria);
-				} else {
-					System.out.println("No hi ha floristeria!!!");
-				}
-				break;
-			case 4:
-				// 4.Afegir Decoració.
-				if (floristeria != null) {
-					afegirDecoracio(gestion, floristeria);
-				} else {
-					System.out.println("No hi ha floristeria!!!");
-				}
-				break;
-			case 5:
-				// Stock: Imprimeix per pantalla tots els arbres, flors i decoració
-				// que té la floristeria.
-				// 5.Stock
-				if (floristeria != null) {
-					imprimirStock(gestion, floristeria);
-				} else {
-					System.out.println("No hi ha floristeria!!!");
-				}
-				break;
-			case 6:
-				// 6.Retirar arbre.
-				if (floristeria != null) {
-					retirarArbre(gestion, floristeria);
-				} else {
-					System.out.println("No hi ha floristeria!!!");
-				}
-				break;
-			case 7:
-				// 7.Retirar flor.
-				if (floristeria != null) {
-					retirarFlor(gestion, floristeria);
-				} else {
-					System.out.println("No hi ha floristeria!!!");
-				}
-				break;
-			case 8:
-				// 8.Retirar decoració.
-				if (floristeria != null) {
-					retirarDecoracio(gestion, floristeria);
-				} else {
-					System.out.println("No hi ha floristeria!!!");
-				}
-				break;
-			case 9:
-				// Printar per pantalla stock amb quantitats.
-				// 9.Stock Amb Quantitats
-				if (floristeria != null) {
-					imprimirStockQuantitats(gestion, floristeria);
-				} else {
-					System.out.println("No hi ha floristeria!!!");
-				}
-				break;
-			case 10:
-				// Printar per pantalla valor total de la floristeria.
-				// 10.Valor Stock // Valor Compres // ValorVendes
-				if (floristeria != null) {
-					imprimirValorStock(gestion, floristeria);
-				} else {
-					System.out.println("No hi ha floristeria!!!");
-				}
-				break;
-			case 11:
-				// Crear tickets de compra amb múltiples objectes.
-				// 11.Compra amb múltiples objectes
-				if (floristeria != null) {
-					crearTicket(gestion, floristeria);
-				} else {
-					System.out.println("No hi ha floristeria!!!");
-				}
-				break;
-			case 12:
-				// Mostrar una llista de compres antigues.
-				// 12.Compres Antigues.
-				if (floristeria != null) {
-					mostrarTickets(gestion, floristeria);
-				} else {
-					System.out.println("No hi ha floristeria!!!");
-				}
-				break;
-			case 13:
-				// Visualitzar el total de diners guanyats amb totes les vendes.*/
-				// 13.diners guanyats
-				// Vendes
-				if (floristeria != null) {
-					visualitzarTotalTickets(gestion, floristeria);
-				} else {
-					System.out.println("No hi ha floristeria!!!");
-				}
-				break;
+            switch (opcion) {
+                case 1 ->
+                    // 1.Crear Floristeria.
+                        floristeria = crearFloristeria(gestion);
+                case 2 -> {
+                    // 2.Afegir Arbre.
+                    if (floristeria != null) {
+                        afegirArbre(gestion, floristeria);
+                    } else {
+                        System.out.println("No hi ha floristeria!!!");
+                    }
+                }
+                case 3 -> {
+                    // 3.Afegir Flor.
+                    if (floristeria != null) {
+                        afegirFlor(gestion, floristeria);
+                    } else {
+                        System.out.println("No hi ha floristeria!!!");
+                    }
+                }
+                case 4 -> {
+                    // 4.Afegir Decoració.
+                    if (floristeria != null) {
+                        afegirDecoracio(gestion, floristeria);
+                    } else {
+                        System.out.println("No hi ha floristeria!!!");
+                    }
+                }
+                case 5 -> {
+                    // Stock: Imprimeix per pantalla tots els arbres, flors i decoració
+                    // que té la floristeria.
+                    // 5.Stock
+                    if (floristeria != null) {
+                        imprimirStock(gestion, floristeria);
+                    } else {
+                        System.out.println("No hi ha floristeria!!!");
+                    }
+                }
+                case 6 -> {
+                    // 6.Retirar arbre.
+                    if (floristeria != null) {
+                        retirarArbre(gestion, floristeria);
+                    } else {
+                        System.out.println("No hi ha floristeria!!!");
+                    }
+                }
+                case 7 -> {
+                    // 7.Retirar flor.
+                    if (floristeria != null) {
+                        retirarFlor(gestion, floristeria);
+                    } else {
+                        System.out.println("No hi ha floristeria!!!");
+                    }
+                }
+                case 8 -> {
+                    // 8.Retirar decoració.
+                    if (floristeria != null) {
+                        retirarDecoracio(gestion, floristeria);
+                    } else {
+                        System.out.println("No hi ha floristeria!!!");
+                    }
+                }
+                case 9 -> {
+                    // Printar per pantalla stock amb quantitats.
+                    // 9.Stock Amb Quantitats
+                    if (floristeria != null) {
+                        imprimirStockQuantitats(gestion, floristeria);
+                    } else {
+                        System.out.println("No hi ha floristeria!!!");
+                    }
+                }
+                case 10 -> {
+                    // Printar per pantalla valor total de la floristeria.
+                    // 10.Valor Stock // Valor Compres // ValorVendes
+                    if (floristeria != null) {
+                        imprimirValorStock(gestion, floristeria);
+                    } else {
+                        System.out.println("No hi ha floristeria!!!");
+                    }
+                }
+                case 11 -> {
+                    // Crear tickets de compra amb múltiples objectes.
+                    // 11.Compra amb múltiples objectes
+                    if (floristeria != null) {
+                        crearTicket(gestion, floristeria);
+                    } else {
+                        System.out.println("No hi ha floristeria!!!");
+                    }
+                }
+                case 12 -> {
+                    // Mostrar una llista de compres antigues.
+                    // 12.Compres Antigues.
+                    if (floristeria != null) {
+                        mostrarTickets(gestion, floristeria);
+                    } else {
+                        System.out.println("No hi ha floristeria!!!");
+                    }
+                }
+                case 13 -> {
+                    // Visualitzar el total de diners guanyats amb totes les vendes.*/
+                    // 13.diners guanyats
+                    // Vendes
+                    if (floristeria != null) {
+                        visualitzarTotalTickets(gestion, floristeria);
+                    } else {
+                        System.out.println("No hi ha floristeria!!!");
+                    }
+                }
 //			case 14:
 //				// 14.Obrir Floristeria.
 //				obrirFloristeria();
 //				break;
-			case 0:
-				onProgram = false;
-				System.out.println("Fin de programa.");
-				break;
-
-			default:
-				break;
-			}
+                case 0 -> {
+                    onProgram = false;
+                    System.out.println("Fin de programa.");
+                }
+                default -> {
+                }
+            }
 		}
 
 	}
